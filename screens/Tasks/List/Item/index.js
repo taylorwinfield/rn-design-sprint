@@ -1,59 +1,44 @@
 import React, { PureComponent } from 'react';
-import styled from 'styled-components';
-import chevron from './chevron.png';
+import { withNavigation } from 'react-navigation';
+import {
+  Container,
+  Flex,
+  Title,
+  Detail,
+  EnRoute,
+  Chevron,
+  Hazard,
+  Button
+} from './styles';
 
-const Container = styled.View`
-  padding: 24px;
-  border-bottom-color: #f0f0f0;
-  border-style: solid;
-  border-bottom-width: 1px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-`;
-const Flex = styled.View``;
-const Title = styled.Text`
-  color: #0099ff;
-  font-size: 16px;
-  font-weight: bold;
-  max-width: 60%;
-  margin-bottom: 8px;
-`;
-const Detail = styled.Text`
-  font-size: 16px;
-  color: black;
-  margin-bottom: 4px;
-`;
+class Item extends PureComponent {
+  handlePress = () => {
+    const {
+      navigation: { navigate }
+    } = this.props;
+    navigate('Detail', {
+      title: this.props.title
+    });
+  };
 
-const Chevron = styled.Image`
-  height: 8px;
-  width: 12px;
-  margin-left: auto;
-`;
-
-const EnRoute = styled.Button`
-  background-color: #0099ff;
-  font-size: 16px;
-  border-radius: 4px;
-`;
-
-export default class Item extends PureComponent {
   render() {
     const { title, customer, address, distance } = this.props;
     return (
       <Container>
-        <Flex>
+        <Button style={{ width: '60%' }} onPress={this.handlePress}>
           <Title>{title}</Title>
           <Detail>{customer}</Detail>
           <Detail>{address}</Detail>
           <Detail>{distance}</Detail>
+        </Button>
+        <Flex style={{ alignItems: 'center' }}>
+          <EnRoute title="En-route" onPress={() => ''} />
+          <Hazard />
         </Flex>
-        <Flex>
-          <EnRoute title="En-route" />
-        </Flex>
-        <Chevron source={chevron} resizeMode="contain" />
+        <Chevron />
       </Container>
     );
   }
 }
+
+export default withNavigation(Item);

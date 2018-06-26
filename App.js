@@ -1,14 +1,33 @@
 import React from 'react';
-import { createBottomTabNavigator } from 'react-navigation'
+import {
+  createBottomTabNavigator,
+  createStackNavigator
+} from 'react-navigation';
 
-import Tasks from './screens/Tasks'
-import SOS from './screens/SOS'
-import Messages from './screens/Messages'
+import Tasks from './screens/Tasks';
+import SOS from './screens/SOS';
+import Messages from './screens/Messages';
 
-export default createBottomTabNavigator({
+import Modal from './screens/Modal';
+
+const MainStack = createBottomTabNavigator(
+  {
     SOS,
     Tasks,
     Messages
-}, {
+  },
+  {
     initialRouteName: 'Tasks'
-});
+  }
+);
+
+export default createStackNavigator(
+  {
+    Main: MainStack,
+    Modal: Modal
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none'
+  }
+);
