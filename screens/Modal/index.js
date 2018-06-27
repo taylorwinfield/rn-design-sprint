@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 const View = styled.View``;
-const Text = styled.Text``;
 const Button = styled.Button``;
 
 /*
@@ -23,6 +22,7 @@ export default class Modal extends PureComponent {
         {Content}
         <Button
           onPress={() => this.props.navigation.goBack()}
+          color='red'
           title="Dismiss"
         />
       </View>

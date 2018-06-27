@@ -14,21 +14,25 @@ import {
 class Item extends PureComponent {
   handlePress = () => {
     const {
-      navigation: { navigate }
+      navigation: { navigate },
+      ...props
     } = this.props;
     navigate('Detail', {
-      title: this.props.title
+      ...props
     });
   };
 
   render() {
-    const { title, customer, address, distance } = this.props;
+    const { title, customer, address, distance, type } = this.props;
+    const { display: displayAddress } = address;
     return (
       <Container>
         <Button style={{ width: '60%' }} onPress={this.handlePress}>
-          <Title>{title}</Title>
+          <Title>
+            {type} - {title}
+          </Title>
           <Detail>{customer}</Detail>
-          <Detail>{address}</Detail>
+          <Detail>{displayAddress}</Detail>
           <Detail>{distance}</Detail>
         </Button>
         <Flex style={{ alignItems: 'center' }}>

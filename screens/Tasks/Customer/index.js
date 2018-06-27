@@ -21,10 +21,12 @@ export default class Customer extends PureComponent {
   };
 
   render() {
+    const { navigation } = this.props;
+    const customer = navigation.getParam('customer', 'customer');
     return (
       <Container>
         <Avatar />
-        <Text>Hey</Text>
+        <Text>{customer}</Text>
       </Container>
     );
   }

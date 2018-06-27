@@ -1,20 +1,20 @@
-import React, {PureComponent } from 'react'
-import styled from 'styled-components'
+import { createStackNavigator } from 'react-navigation';
+import Detail from './Detail';
+import List from './List';
 
-const View = styled.View`
-  
-`
-
-const Text = styled.Text`
-  
-`
-
-export default class Messages extends PureComponent {
-    render() {
-        return (
-            <View>
-                <Text>Messages</Text>
-            </View>
-        )
-    }
-}
+export default createStackNavigator(
+  {
+    List,
+    Detail
+  },
+  {
+    navigationOptions: () => ({
+      headerTitleStyle: {
+        color: 'white'
+      },
+      headerStyle: {
+        backgroundColor: '#0099FF'
+      }
+    })
+  }
+);

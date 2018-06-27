@@ -17,7 +17,7 @@ const MainStack = createBottomTabNavigator(
     Messages
   },
   {
-    initialRouteName: 'Tasks'
+    initialRouteName: 'Messages'
   }
 );
 
