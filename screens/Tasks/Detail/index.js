@@ -8,7 +8,7 @@ export default class Detail extends PureComponent {
     /*
       Use redux to store and retrieve this
       type of data
-   */
+     */
     const customer = navigation.getParam('customer', 'customer');
     navigation.navigate('Customer', {
       customer

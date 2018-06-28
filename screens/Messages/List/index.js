@@ -12,12 +12,12 @@ const data = [
   {
     date: '2018-06-27T16:03:00',
     text: 'Please ring control with lunch message',
-    id: '0'
+    id: '1'
   },
   {
     date: '2018-06-27T16:03:00',
     text: 'Please ring control with lunch message',
-    id: '0'
+    id: '2'
   }
 ];
 

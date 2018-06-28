@@ -10,6 +10,8 @@ const Container = styled.View`
   padding: 24px 0;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const Date = styled.Text`
@@ -21,10 +23,12 @@ const Date = styled.Text`
 const Text = styled.Text`
   font-size: 16px;
   color: #555555;
-  width: 60%;
+  max-width: 70%;
 `;
 
-export const Button = styled.Button``;
+export const Button = styled.Button`
+  margin-left: auto;
+`;
 export const View = styled.View``;
 
 export default ({ item }) => (
@@ -34,7 +38,7 @@ export default ({ item }) => (
       <Text>{item.text}</Text>
     </View>
     <View>
-      <Button title="Got it!" onPress={} />
+      <Button title="Got it!" onPress={() => ''} />
     </View>
   </Container>
 );
